@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        header {
+            background-color: #008080; 
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; 
+            justify-content: flex-end;
+            gap: 20px;
+        }
+        
+        nav ul a {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 5px 0; 
+        }
+
+        .active a {}
+
+        h1 {
+            padding-left: 20px;
+        }
+        .thumbnail-row {
+            display: flex;
+            gap: 10px;
+            padding: 0 20px;
+            margin-bottom: 20px;
+        }
+        .thumbnail {
+            cursor: pointer;
+            border-radius: 80px;
+        }
+        .large-display-area {
+            padding: 0 20px 20px;
+        }
+        #mainImage {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Images/Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02_(cropped).jpg" onclick="swapImage(this.href); return false;">Fish 1</a></li>
+                <li><a href="Images/Blue Angelfish 1-320x320.jpg" onclick="swapImage(this.href); return false;">Angelfish</a></li>
+                <li><a href="Images/manta-ray-e1652419687627.jpg" onclick="swapImage(this.href); return false;">Manta ray</a></li>
+                <li><a href="Images/pomacanthusimperatorchanging_2048x.jpg" onclick="swapImage(this.href); return false;">Crustaceans</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Image Gallery </h1>
+    
+    <div class="thumbnail-row">
+        <img src="Images/Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02_(cropped).jpg" alt="Thumbnail 1" class="thumbnail" width="100">
+        <img src="Images/Blue Angelfish 1-320x320.jpg" alt="Thumbnail 2" class="thumbnail" width="100">
+        <img src="Images/manta-ray-e1652419687627.jpg" alt="Thumbnail 3" class="thumbnail" width="100">
+        <img src="Images/pomacanthusimperatorchanging_2048x.jpg" alt="Thumbnail 4" class="thumbnail" width="100">
+    </div>
+
+    <div class="large-display-area">
+        <img src="Week3/Images/pomacanthusimperatorchanging_2048x.jpg" alt="Large display image" id="mainImage" width="400">
+    </div>
+    
+    <script>
+        function swapImage(newSrc) {
+            document.getElementById('mainImage').src = newSrc;
+        }
+
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', (event) => {
+                swapImage(event.target.src);
+            });
+        });
+    </script>
+</body>
+</html>
